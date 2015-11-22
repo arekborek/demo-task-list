@@ -3,6 +3,7 @@ package pl.aborek.demo.tasklist.task.app;
 import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.aborek.demo.tasklist.tag.domain.Tag;
@@ -14,6 +15,7 @@ import pl.aborek.demo.tasklist.task.persistence.TaskRepository;
 import pl.aborek.demo.tasklist.user.domain.User;
 import pl.aborek.demo.tasklist.user.persistance.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
@@ -33,23 +35,23 @@ public class TaskService {
     }
 
     public List<Task> findAll() {
-        return taskRepository.findAll();
+        return new ArrayList<>(0);
     }
 
     public Page<Task> findAll(Pageable pageable) {
-        return taskRepository.findAll(pageable);
+        return new PageImpl<Task>(new ArrayList<>(0));
     }
 
     public Task findById(Long taskId) {
-        return taskRepository.findOne(taskId);
+        return new Task();
     }
 
     public List<Task> findByTag(String tag) {
-        return taskRepository.findByTag(tagRepository.findOne(tag));
+        return new ArrayList<>();
     }
 
     public List<Task> findByState(TaskState state) {
-        return taskRepository.findByState(state);
+        return new ArrayList<>();
     }
 
     public Task create(CreateTask createTask) {
@@ -60,32 +62,22 @@ public class TaskService {
     }
 
     public void delete(Long taskId) {
-        taskRepository.delete(taskId);
+
     }
 
     public Task update(Long taskId, String taskContent) {
-        Task loaded = taskRepository.findOne(taskId);
-        if (!isNullOrEmpty(taskContent)) {
-            loaded.setContent(taskContent);
-        }
-        return taskRepository.save(loaded);
+        return new Task();
     }
 
     public Task markAsTodo(Long taskId) {
-        Task task = taskRepository.findOne(taskId);
-        task.markAsTodo();
-        return taskRepository.save(task);
+        return new Task();
     }
 
     public Task markAsDone(Long taskId) {
-        Task task = taskRepository.findOne(taskId);
-        task.markAsDone();
-        return taskRepository.save(task);
+        return new Task();
     }
 
     public Task addTagToTask(Long taskId, String tag) {
-        Task task = taskRepository.findOne(taskId);
-        task.addTag(tagRepository.save(new Tag(tag)));
-        return taskRepository.save(task);
+        return new Task();
     }
 }

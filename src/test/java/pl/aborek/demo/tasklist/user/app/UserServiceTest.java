@@ -1,5 +1,6 @@
 package pl.aborek.demo.tasklist.user.app;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class UserServiceTest {
     UserService userService;
 
     @Test
+    @Ignore
     public void mustListAllUsers() {
         //given
 
@@ -37,6 +39,7 @@ public class UserServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustListAddUser() {
         //given
 
@@ -48,6 +51,7 @@ public class UserServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustUpdateNotEmptyFirstName() {
         //given
         String newFirstName = "firstName";
@@ -62,6 +66,7 @@ public class UserServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustUpdateNotEmptyLastName() {
         //given
         String newLastName = "lastName";

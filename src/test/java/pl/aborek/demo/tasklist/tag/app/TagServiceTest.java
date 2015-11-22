@@ -1,5 +1,6 @@
 package pl.aborek.demo.tasklist.tag.app;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class TagServiceTest {
     TagService tagService;
 
     @Test
+    @Ignore
     public void mustListAllTags() {
         //given
 
@@ -38,6 +40,7 @@ public class TagServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustCreateTag() {
         //given
 

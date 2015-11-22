@@ -1,6 +1,7 @@
 package pl.aborek.demo.tasklist.task.app;
 
 import org.fest.assertions.Fail;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class TaskServiceTest {
     private TaskService taskService;
 
     @Test
+    @Ignore
     public void mustListAllTasks() {
         //given
 
@@ -41,6 +43,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustListAllTaskWithPagination() {
         //given
 
@@ -52,6 +55,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustFindTaskById() {
         //given
         Long taskId = 1L;
@@ -65,6 +69,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustFindTaskByTag() {
         //given
         String tag = "third";
@@ -77,6 +82,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustFindTaskByState() {
         //given
         TaskState state = TaskState.TO_DO;
@@ -89,6 +95,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustCreateTask() {
         //given
         String taskContent = "test";
@@ -103,6 +110,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustDeleteTask() {
         //given
         Long taskId = 1L;
@@ -115,6 +123,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustUpdateNotEmptyTaskContent() {
         //given
         Long taskId = 1L;
@@ -129,6 +138,7 @@ public class TaskServiceTest {
     }
 
     @Test
+    @Ignore
     public void mustNotUpdateWhenTaskContentIsEmpty() {
         //given
         Long taskId = 1L;
@@ -146,6 +156,7 @@ public class TaskServiceTest {
 //    }
 
     @Test
+    @Ignore
     public void mustMarkTaskAsDone() {
         //given
 

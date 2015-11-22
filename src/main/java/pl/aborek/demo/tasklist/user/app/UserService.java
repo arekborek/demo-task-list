@@ -1,14 +1,15 @@
 package pl.aborek.demo.tasklist.user.app;
 
-import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.aborek.demo.tasklist.user.app.command.CreateUser;
 import pl.aborek.demo.tasklist.user.domain.User;
 import pl.aborek.demo.tasklist.user.persistance.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
@@ -28,21 +29,14 @@ public class UserService {
     }
 
     public List<User> findAll() {
-        return repository.findAll();
+        return new ArrayList<>(0);
     }
 
     public Page<User> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+        return new PageImpl<User>(new ArrayList<>(0));
     }
 
     public User update(String login, String firstName, String lastName) {
-        User user = repository.findOne(login);
-        if (!isNullOrEmpty(firstName)) {
-            user.setFirstName(firstName);
-        }
-        if (!isNullOrEmpty(lastName)) {
-            user.setLastName(lastName);
-        }
-        return repository.save(user);
+        return new User();
     }
 }

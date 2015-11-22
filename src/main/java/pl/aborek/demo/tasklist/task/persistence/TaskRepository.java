@@ -11,9 +11,4 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    @Query("select t from Task t where :tag member t.tags")
-    List<Task> findByTag(@Param("tag") Tag tag);
-
-    List<Task> findByState(TaskState state);
-
 }
